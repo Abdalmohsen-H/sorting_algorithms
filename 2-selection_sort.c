@@ -17,14 +17,17 @@ void selection_sort(int *array, size_t size)
 		for (q = idx - 1; q < size; q++)
 		{
 			if (array[minidx] > array[q])
-			{
-				swap(&array[minidx], &array[q]);
-				/* Next line just to visualize changes, You could comment it*/
-				print_array(array, size);
-			}
+				minidx = q;
+		}
+		if (minidx != idx - 1)
+		{
+			swap(&array[minidx], &array[idx - 1]);
+			/* Next line just to visualize changes, You could comment it*/
+			print_array(array, size);
 		}
 	}
 }
+
 /**
  * swap - swap 2 values
  *
