@@ -12,6 +12,8 @@ void quick_sort(int *array, size_t size)
 
 	if (high > low && array)/* size > 1 && array*/
 		main_quick_sort(array, low, high, size);
+	else
+		return
 }
 /**
  * main_quick_sort - start quick sort via
