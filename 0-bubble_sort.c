@@ -8,21 +8,21 @@
 void bubble_sort(int *array, size_t size)
 {size_t outidx, inidx;
 
-		if (array && size)
+	if (array && size)
+	{
+		for (outidx = 1; outidx < size; outidx++)
 		{
-				for (outidx = 1; outidx < size; outidx++)
+			for (inidx = 1; inidx < size; inidx++)
+			{
+				if (array[inidx - 1] > array[inidx])
 				{
-						for (inidx = 1; inidx < size; inidx++)
-						{
-								if (array[inidx - 1] > array[inidx])
-								{
-										swap(&array[inidx - 1], &array[inidx]);
-										/* next line just to visualize you could comment it*/
-										print_array(array, size);
-								}
-						}
+					swap(&array[inidx - 1], &array[inidx]);
+					/* next line just to visualize you could comment it*/
+					print_array(array, size);
 				}
+			}
 		}
+	}
 }
 
 /**
@@ -33,8 +33,8 @@ void bubble_sort(int *array, size_t size)
  */
 void swap(int *frst, int *scnd)
 {
-		int tmp = *frst;
+	int tmp = *frst;
 
-		*frst = *scnd;
-		*scnd = tmp;
+	*frst = *scnd;
+	*scnd = tmp;
 }
