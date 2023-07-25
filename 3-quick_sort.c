@@ -51,14 +51,21 @@ size_t partition(int *array, int low, int high, size_t size)
 			if (array[j] < array[pivot_indx])
 			{
 				tmp_nw_pivot_idx++;
-				swap(&array[tmp_nw_pivot_idx], &array[j]);
-				/* next line just to visualize not req*/
-				print_array(array, size);
+				if (tmp_nw_pivot_idx != j)/*avoid swapping same element*/
+				{
+					swap(&array[tmp_nw_pivot_idx], &array[j]);
+					/* next line just to visualize not req*/
+					print_array(array, size);
+				}
 			}
 		}
-		/* important swap ptivot with (tmp_pivot + 1) at end*/
-		swap(&array[tmp_nw_pivot_idx + 1], &array[pivot_indx]);
-		/*don't ever forget the "+1" and this should be outside above loop*/
+		/* important increment tmp_pivot first*/
+		/*this should be outside above loop*/
+		tmp_nw_pivot_idx++;
+		if (tmp_nw_pivot_idx != pivot_indx)/*avoid swapping same element*/
+		{swap(&array[tmp_nw_pivot_idx], &array[pivot_indx]);
+			print_array(array, size);
+		}
 		return (tmp_nw_pivot_idx);/*return new pivot index*/
 	}
 	return (high);/*if it only one element in partiton*/
