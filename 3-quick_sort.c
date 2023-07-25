@@ -10,7 +10,7 @@ void quick_sort(int *array, size_t size)
 {
 	int low = 0, high = size - 1;
 
-	if (high > low && array)/* size > 1 && array*/
+	if (size > 1 && array != NULL)
 		main_quick_sort(array, low, high, size);
 }
 /**
